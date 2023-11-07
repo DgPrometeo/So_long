@@ -6,11 +6,18 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:07:37 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/06 12:33:29 by danielga         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:45:53 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_initstruct(t_game *game)
+{
+	game->collect = 0;
+	game->needcollec = 0;
+	game->moves = 0;
+}
 
 void	ft_error(int flag)
 {
@@ -18,6 +25,8 @@ void	ft_error(int flag)
 		ft_printf("Error! You write: ./so_long <archive.ber>\n");
 	else if (flag == 1)
 		ft_printf("Error! You need an archive *.ber\n");
+	else if (flag == 2)
+		ft_printf("Error! The map is empty\n");
 	exit(EXIT_FAILURE);
 }
 
