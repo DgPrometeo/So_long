@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:08:22 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/07 11:52:46 by danielga         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:12:54 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,33 @@ void	ft_checkname(char *map)
 	}
 }
 
+void	ft_symmetric(t_game game)
+{
+	int	x;
+	int	y;
+	int	total_x;
+
+	x = 0;
+	y = 0;
+	while (game.gamemap[x][y] != '\0')
+		x++;
+	total_x = x;
+	x = 0;
+	while (game.gamemap[x][y] != '\0')
+	{
+		while (game.gamemap[x][y] != '\0')
+		{
+			x++;
+		}
+		if (total_x != x)
+			ft_error(3);
+		x = 0;
+		y++;
+	}
+	game.height = y;
+	game.width = total_x;
+}
+
 void	ft_checkmap(char *map, t_game *game)
 {
 	game->map = ft_checkname(map);
@@ -44,10 +71,10 @@ void	ft_checkmap(char *map, t_game *game)
 
 /**
  * Hay que:
- * - revisar si el nombre es .ber
- * - que pueda abrirlo correctamente con open y tenga permisos para ello.
- * - que se pueda leer.
- * - iniciamos toda la estructura.
+ * - revisar si el nombre es .ber - listo
+ * - que pueda abrirlo correctamente con open y tenga permisos para ello. - listo?
+ * - que se pueda leer. - listo
+ * - iniciamos toda la estructura. - listo
  * - validamos que el mapa sea correcto con coleccionables tomables y salida y 
  * cerrado.
  * 

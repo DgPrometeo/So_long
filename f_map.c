@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:45:24 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/07 11:53:24 by danielga         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:28:01 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_controlmap(t_game *game)
 {
-	
+	ft_symmetric(game);
+	ft_bordermap(game);
+	ft_elementsmap(game);
 }
 
 void	ft_read(t_game *game)
@@ -35,7 +37,7 @@ void	ft_read(t_game *game)
 	}
 	if (total[0] == '\n' || total == 0)
 		ft_error(2);
-	game->map = ft_split(total, '\n');
+	game->gamemap = ft_split(total, '\n');
 	free(total);
 	close(game->fd);
 }

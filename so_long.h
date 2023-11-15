@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:37 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/07 11:49:40 by danielga         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:23:51 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./libft/libft.h"
 # include "./MLX42/include/MLX42/MLX42.h"
+# include <unistd.h>
 # define WIDTH 256
 # define HEIGHT 256
 
@@ -36,13 +37,14 @@ typedef struct s_game
 {
 	void		*window;
 //	void		*context;
-	int32_t		width;
-	int32_t		height;
+	int			width;
+	int			height;
 //	double		delta_time;
 	int			collect;
 	int			needcollec;
 	int			moves;
 	char		*map;
+	char		**gamemap;
 	int			fd;
 }				t_game;
 

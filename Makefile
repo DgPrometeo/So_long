@@ -6,13 +6,13 @@
 #    By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/10 19:20:57 by danielga          #+#    #+#              #
-#    Updated: 2023/11/06 12:22:42 by danielga         ###   ########.fr        #
+#    Updated: 2023/11/15 11:10:48 by danielga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c make_game.c check_map.c game.c play.c
+SRC = main.c make_game.c check_map.c game.c play.c f_map.c
 OBJS = ${SRC:.c=.o}
 
 SRC_LIBFT	= ./libft
