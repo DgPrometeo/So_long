@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:08:22 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/15 13:12:54 by danielga         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:36:56 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,75 @@ void	ft_symmetric(t_game game)
 void	ft_checkmap(char *map, t_game *game)
 {
 	game->map = ft_checkname(map);
+	#include <fcntl.h>
+
 	game->fd = open(game->map, O_RDONLY);
 	ft_read(game);
 	ft_initstruct(game);
 	ft_controlmap(game);
 }
+
+//TERMINAR DE HACER ESTA FUNCION
+void	ft_bordermap(t_game game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	// Check top and bottom borders
+	while (x < game.width)
+	{
+		if (game.gamemap[x][y] != '1' || game.gamemap[x][game.height - 1] != '1')
+		{
+			ft_error(4);
+		}
+		x++;
+	}
+	// Check left and right borders
+	x = 0;
+	y = 1;
+	while (y < game.height - 1)
+	{
+		if (game.gamemap[x][y] != '1' || game.gamemap[game.width - 1][y] != '1')
+		{
+			ft_error(4);
+		}
+		y++;
+	}
+}
+//prueba 2
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (game.gamemap[x][y] != '\0')
+	{
+		while (y = 0)
+		{
+			if (game.gamemap[x][y] != '1')
+				ft_error(4);
+			x++;
+			if (game.gamemap[x][y] == '\0')
+				y++;
+		}
+		while (x != game.width && y != game.height)
+		{
+			if (game.gamemap[0][y] != '1' || game.gamemap[game.height - 1][y] != '1')
+				ft_error(4);
+			if (game.gamemap[x][y] != '\0')
+				{
+					y++;
+					x = 0;
+				}
+			x++;
+		}
+	}
+}
+
+
 
 /**
  * Hay que:

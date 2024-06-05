@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:07:37 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/15 11:06:26 by danielga         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:06:23 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	ft_error(int flag)
 		ft_printf("Error! You need an archive *.ber\n");
 	else if (flag == 2)
 		ft_printf("Error! The map is empty\n");
+	else if (flag == 3)
+		ft_printf("Error! The map is not symmetric\n");
+	else if (flag == 4)
+		ft_printf("Error! The map is not closed\n");
 	exit(EXIT_FAILURE);
 }
 

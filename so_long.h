@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:37 by danielga          #+#    #+#             */
-/*   Updated: 2023/11/15 12:23:51 by danielga         ###   ########.fr       */
+/*   Updated: 2024/06/05 19:15:43 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_game
 int			main(int argc, char **argv);
 void		ft_free_game(t_game game);
 void		ft_error(int flag);
+void		ft_initstruct(t_game *game);
 
 //make_game.c
 void		ft_startgame(char *map, t_game *game);
@@ -63,4 +64,5 @@ void		ft_checkname(char *map);
 
 //f_map.c
 void		ft_read(t_game *game);
+void		ft_controlmap(t_game *game);
 #endif
