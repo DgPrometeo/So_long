@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:37 by danielga          #+#    #+#             */
-/*   Updated: 2024/06/05 19:15:43 by danielga         ###   ########.fr       */
+/*   Updated: 2024/06/07 12:08:09 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include "./libft/libft.h"
 # include "./MLX42/include/MLX42/MLX42.h"
+# include "./get_next_line/get_next_line.h"
 # include <unistd.h>
+# include <fcntl.h>
 # define WIDTH 256
 # define HEIGHT 256
 
@@ -27,9 +29,13 @@
  * @param height The height of the window.
  * @param delta_time The time difference between the previous frame and the
  * current frame.
- * @param collect coleccionables conseguidos.
- * @param needcollec coleccionables requeridos para abrir la salida.
+ * @param coins coleccionables conseguidos.
+ * @param needcoin coleccionables requeridos para abrir la salida.
  * @param moves número de movimientos realizados.
+ * @param player caracter del jugador.
+ * @param door caracter de la salida.
+ * @param wall caracter de la pared.
+ * @param floor caracter del suelo.
  * @param map Es el propio mapa dado.
  * @param fd Al abrir el archivo del mapa con open, el file descriptor dado.
  *  */
@@ -40,8 +46,12 @@ typedef struct s_game
 	int			width;
 	int			height;
 //	double		delta_time;
-	int			collect;
-	int			needcollec;
+	int			coins;
+	int			needcoin;
+	int			player;
+	int			door;
+	int			wall;
+	int			floor;
 	int			moves;
 	char		*map;
 	char		**gamemap;
@@ -51,7 +61,7 @@ typedef struct s_game
 //funciones
 //main.c
 int			main(int argc, char **argv);
-void		ft_free_game(t_game game);
+void		ft_free_game(t_game *game);
 void		ft_error(int flag);
 void		ft_initstruct(t_game *game);
 
@@ -61,6 +71,9 @@ void		ft_startgame(char *map, t_game *game);
 //check_map.c
 void		ft_checkmap(char *map, t_game *game);
 void		ft_checkname(char *map);
+void		ft_symmetric(t_game *game);
+void		ft_bordermap(t_game *game);
+void		ft_elementsmap(t_game *game);
 
 //f_map.c
 void		ft_read(t_game *game);

@@ -6,12 +6,15 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:08:22 by danielga          #+#    #+#             */
-/*   Updated: 2024/06/05 20:36:56 by danielga         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:14:45 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/**
+ * @brief Función que comprueba si el archivo es *.ber
+ */
 void	ft_checkname(char *map)
 {
 	char	*arch;
@@ -33,7 +36,10 @@ void	ft_checkname(char *map)
 	}
 }
 
-void	ft_symmetric(t_game game)
+/**
+ * @brief Función que comprueba si el mapa es simétrico.
+ */
+void	ft_symmetric(t_game *game)
 {
 	int	x;
 	int	y;
@@ -41,13 +47,13 @@ void	ft_symmetric(t_game game)
 
 	x = 0;
 	y = 0;
-	while (game.gamemap[x][y] != '\0')
+	while (game->gamemap[x][y] != '\0')
 		x++;
 	total_x = x;
 	x = 0;
-	while (game.gamemap[x][y] != '\0')
+	while (game->gamemap[x][y] != '\0')
 	{
-		while (game.gamemap[x][y] != '\0')
+		while (game->gamemap[x][y] != '\0')
 		{
 			x++;
 		}
@@ -56,90 +62,88 @@ void	ft_symmetric(t_game game)
 		x = 0;
 		y++;
 	}
-	game.height = y;
-	game.width = total_x;
+	game->height = y;
+	game->width = total_x;
 }
 
+/**
+ * @brief Función que comprueba si el archivo y el mapa es correcto.
+ * A su vez, inicia la estructura y lee el archivo.
+ */
 void	ft_checkmap(char *map, t_game *game)
 {
 	game->map = ft_checkname(map);
-	#include <fcntl.h>
-
 	game->fd = open(game->map, O_RDONLY);
 	ft_read(game);
 	ft_initstruct(game);
 	ft_controlmap(game);
 }
 
-//TERMINAR DE HACER ESTA FUNCION
-void	ft_bordermap(t_game game)
+/**
+ * @brief Función que comprueba si el mapa está cerrado.
+ */
+void	ft_bordermap(t_game *game)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	// Check top and bottom borders
-	while (x < game.width)
+	while (x < game->width)
 	{
-		if (game.gamemap[x][y] != '1' || game.gamemap[x][game.height - 1] != '1')
-		{
+		if (game->gamemap[x][y] != '1' || game->gamemap[x][game->height - 1] != '1')
 			ft_error(4);
-		}
 		x++;
 	}
-	// Check left and right borders
 	x = 0;
 	y = 1;
-	while (y < game.height - 1)
+	while (y < game->height - 1)
 	{
-		if (game.gamemap[x][y] != '1' || game.gamemap[game.width - 1][y] != '1')
-		{
+		if (game->gamemap[x][y] != '1' || game->gamemap[game->width - 1][y] != '1')
 			ft_error(4);
-		}
 		y++;
 	}
 }
-//prueba 2
+
+/**
+ * @brief Función que añade todos los elementos necesarios y posibles del mapa.
+ */
+void	ft_elementsmap(t_game *game)
 {
 	int	x;
 	int	y;
 
-	x = 0;
-	y = 0;
-	while (game.gamemap[x][y] != '\0')
+	x = -1;
+	y = -1;
+	while (++x < game->width)
 	{
-		while (y = 0)
+		while (++y < game->height)
 		{
-			if (game.gamemap[x][y] != '1')
-				ft_error(4);
-			x++;
-			if (game.gamemap[x][y] == '\0')
-				y++;
+			if (game->gamemap[x][y] == 'P')
+				game->player++;
+			else if (game->gamemap[x][y] == 'E')
+				game->door++;
+			else if (game->gamemap[x][y] == 'C')
+				game->coins++;
+			else if (game->gamemap[x][y] == '1')
+				game->wall++;
+			else if (game->gamemap[x][y] == '0')
+				game->floor++;
+			else
+				ft_error(5);
 		}
-		while (x != game.width && y != game.height)
-		{
-			if (game.gamemap[0][y] != '1' || game.gamemap[game.height - 1][y] != '1')
-				ft_error(4);
-			if (game.gamemap[x][y] != '\0')
-				{
-					y++;
-					x = 0;
-				}
-			x++;
-		}
+		y = -1;
 	}
+	game->needcoin = game->coins;
 }
-
-
 
 /**
  * Hay que:
- * - revisar si el nombre es .ber - listo
- * - que pueda abrirlo correctamente con open y tenga permisos para ello. - listo?
- * - que se pueda leer. - listo
- * - iniciamos toda la estructura. - listo
+ * - revisar si el nombre es .ber - x
+ * - que pueda abrirlo correctamente con open y tenga permisos para ello. - x
+ * - que se pueda leer. - x
+ * - iniciamos toda la estructura. - x
  * - validamos que el mapa sea correcto con coleccionables tomables y salida y 
- * cerrado.
+ * cerrado. - x
  * 
 */
