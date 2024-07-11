@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:45:24 by danielga          #+#    #+#             */
-/*   Updated: 2024/07/03 17:22:20 by danielga         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:09:43 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,3 @@ void	ft_read(t_game *game)
 	free(total);
 	close(game->fd);
 }
-
-

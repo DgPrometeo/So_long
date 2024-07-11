@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:08:59 by danielga          #+#    #+#             */
-/*   Updated: 2024/07/03 18:43:52 by danielga         ###   ########.fr       */
+/*   Updated: 2024/07/11 17:32:23 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	ft_startgame(char *map, t_game *game)
 	//arrancar juego con mlx_hook?
 	//que funcione con mlx_loop
 	//que revise la condición de victoria?
+}
+
+void	ft_openwindow(t_game *game)
+{
+	game->window = mlx_new_window(game->mlx, game->width, game->height, "so_long");
 }
 
 /**

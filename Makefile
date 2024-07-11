@@ -6,7 +6,7 @@
 #    By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/10 19:20:57 by danielga          #+#    #+#              #
-#    Updated: 2023/11/15 11:10:48 by danielga         ###   ########.fr        #
+#    Updated: 2024/07/04 12:34:49 by danielga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = ${SRC:.c=.o}
 SRC_LIBFT	= ./libft
 LIBFT = ./libft/libft.a
 
-MLX42 = MLX42
+MLX42 = /sgoinfre/shared/MLX42/build
 
 CC	= gcc
 CFLAGS	= -Wall -Wextra -Werror
@@ -44,3 +44,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all, clean, fclean, re
+

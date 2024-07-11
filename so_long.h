@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:09:37 by danielga          #+#    #+#             */
-/*   Updated: 2024/06/07 12:08:09 by danielga         ###   ########.fr       */
+/*   Updated: 2024/07/04 12:35:59 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "./libft/libft.h"
-# include "./MLX42/include/MLX42/MLX42.h"
+# include "/sgoinfre/shared/MLX42/include/MLX42/MLX42.h"
 # include "./get_next_line/get_next_line.h"
 # include <unistd.h>
 # include <fcntl.h>
@@ -41,22 +41,29 @@
  *  */
 typedef struct s_game
 {
-	void		*window;
-//	void		*context;
-	int			width;
-	int			height;
-//	double		delta_time;
-	int			coins;
-	int			needcoin;
-	int			player;
-	int			door;
-	int			wall;
-	int			floor;
-	int			moves;
-	char		*map;
-	char		**gamemap;
-	int			fd;
-}				t_game;
+	void			*window;
+//	void			*context;
+	int				width;
+	int				height;
+//	double			delta_time;
+	int				coins;
+	int				needcoin;
+	int				player;
+	int				door;
+	int				wall;
+	int				floor;
+	int				moves;
+	char			*map;
+	char			**gamemap;
+	int				fd;
+	mlx_t			*mlx;
+	mlx_image_t		*playerl_img;
+	mlx_image_t		*playerr_img;
+	mlx_image_t		*wall_img;
+	mlx_image_t		*floor_img;
+	mlx_image_t		*coin_img;
+	mlx_image_t		*exit_img;
+}	t_game;
 
 //funciones
 //main.c

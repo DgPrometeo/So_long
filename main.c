@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:07:37 by danielga          #+#    #+#             */
-/*   Updated: 2024/07/03 17:07:07 by danielga         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:22:05 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	ft_initstruct(t_game *game)
 	game->door = 0;
 	game->wall = 0;
 	game->floor = 0;
+	game->mlx = NULL;
+	game->playerl_img = NULL;
+	game->playerr_img = NULL;
+	game->wall_img = NULL;
+	game->floor_img = NULL;
+	game->coin_img = NULL;
+	game->exit_img = NULL;
 }
 
 /**
