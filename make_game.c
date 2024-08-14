@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 10:08:59 by danielga          #+#    #+#             */
-/*   Updated: 2024/07/11 17:32:23 by danielga         ###   ########.fr       */
+/*   Updated: 2024/08/14 18:24:44 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_startgame(char *map, t_game *game)
 
 void	ft_openwindow(t_game *game)
 {
-	game->window = mlx_new_window(game->mlx, game->width, game->height, "so_long");
+	game->window = mlx_init(game->width, game->height, "so_long", game->mlx);
 }
 
 /**

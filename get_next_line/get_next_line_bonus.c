@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 10:52:18 by danielga          #+#    #+#             */
-/*   Updated: 2023/04/28 16:48:27 by danielga         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:54:04 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*get_read(char *str, int fd)
 	tmp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!tmp)
 		return (NULL);
-	while (r > 0 && !ft_strchr(str, '\n'))
+	while (r > 0 && !ft_gnlstrchr(str, '\n'))
 	{
 		r = read(fd, tmp, BUFFER_SIZE);
 		if (r < 0)
@@ -53,7 +53,7 @@ char	*get_read(char *str, int fd)
 			return (NULL);
 		}
 		tmp[r] = '\0';
-		str = ft_strjoin(str, tmp);
+		str = ft_gnlstrjoin(str, tmp);
 	}
 	free(tmp);
 	return (str);
@@ -129,7 +129,7 @@ char	*ft_new_line(char *buff)
 		free(buff);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(buff) - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_gnlstrlen(buff) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

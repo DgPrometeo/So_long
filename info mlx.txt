@@ -1,0 +1,64 @@
+/**
+ * Initializes a new MLX42 Instance.
+ * 
+ * @param[in] width The width of the window.
+ * @param[in] height The height of the window.
+ * @param[in] title The title of the window.
+ * @param[in] resize Enable window resizing.
+ * @returns Ptr to the MLX handle or null on failure.
+ */
+mlx_t* mlx_init(int32_t width, int32_t height, const char* title, bool resize);
+
+
+/**
+ * Notifies MLX that it should stop rendering and exit the main loop.
+ * This is not the same as terminate, this simply tells MLX to close the window.
+ * 
+ * @param[in] mlx The MLX instance handle.
+ */
+void mlx_close_window(mlx_t* mlx);
+
+/**
+ * Initializes the rendering of MLX, this function won't return until
+ * mlx_close_window is called, meaning it will loop until the user requests that
+ * the window should close.
+ * 
+ * @param[in] mlx The MLX instance handle.
+ */
+void mlx_loop(mlx_t* mlx);
+
+
+/**
+ * Terminates MLX and cleans up any of its used resources.
+ * Using any functions that require mlx afterwards will
+ * be considered undefined behaviour, beware of segfaults.
+ * 
+ * @param[in] mlx The MLX instance handle.
+ */
+void mlx_terminate(mlx_t* mlx);
+
+/= Image Functions =//
+
+/**
+ * Sets / puts a pixel onto an image.
+ * 
+ * NOTE: It is considered undefined behaviour when putting a pixel 
+ * beyond the bounds of an image.
+ * 
+ * @param[in] image The MLX instance handle.
+ * @param[in] x The X coordinate position.
+ * @param[in] y The Y coordinate position.
+ * @param[in] color The color value to put.
+ */
+void mlx_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color);
+
+/**
+ * Creates and allocates a new image buffer.
+ * 
+ * @param[in] mlx The MLX instance handle.
+ * @param[in] width The desired width of the image.
+ * @param[in] height The desired height of the image.
+ * @return Pointer to the image buffer, if it failed to allocate then NULL.
+ */
+mlx_image_t* mlx_new_image(mlx_t* mlx, uint32_t width, uint32_t height);
+

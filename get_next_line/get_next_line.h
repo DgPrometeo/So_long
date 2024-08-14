@@ -6,7 +6,7 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 10:58:01 by danielga          #+#    #+#             */
-/*   Updated: 2023/04/28 16:49:11 by danielga         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:55:59 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	*get_next_line(int fd);
 char	*get_read(char *buffer, int fd);
 char	*ft_new_line(char *buffer);
 char	*ft_get_line(char *line);
-size_t	ft_strlen(char *str);
+size_t	ft_gnlstrlen(char *str);
 char	*ft_calloc_bzero(size_t count, size_t size);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *buff, char *s2);
+char	*ft_gnlstrchr(char *s, int c);
+char	*ft_gnlstrjoin(char *buff, char *s2);
 
 #endif
 

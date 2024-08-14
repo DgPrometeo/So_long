@@ -6,13 +6,13 @@
 /*   By: danielga <danielga@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:34:26 by danielga          #+#    #+#             */
-/*   Updated: 2023/04/28 16:50:31 by danielga         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:55:16 by danielga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_gnlstrlen(char *str)
 {
 	size_t	i;
 
@@ -48,7 +48,7 @@ char	*ft_calloc_bzero(size_t count, size_t size)
 	return (s);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_gnlstrchr(char *s, int c)
 {
 	char	x;
 	size_t	i;
@@ -58,7 +58,7 @@ char	*ft_strchr(char *s, int c)
 	i = 0;
 	x = (char) c;
 	while (s[i] != x)
-	{	
+	{
 		if (s[i] == '\0')
 			return (0);
 		i++;
@@ -77,7 +77,7 @@ we go through first the buff copying it in the new one and later the s1.
 then we free what we had given as buffer and we return the updated one.
 */
 
-char	*ft_strjoin(char *buff, char *s1)
+char	*ft_gnlstrjoin(char *buff, char *s1)
 {
 	char	*str;
 	size_t	i;
@@ -85,7 +85,7 @@ char	*ft_strjoin(char *buff, char *s1)
 
 	if (!buff)
 		buff = ft_calloc_bzero(1, 1);
-	str = (char *)malloc(sizeof(char) * (ft_strlen(buff) + ft_strlen(s1) + 1));
+	str = (char *)malloc(sizeof(char) * (ft_gnlstrlen(buff) + ft_gnlstrlen(s1) + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
