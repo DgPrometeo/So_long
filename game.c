@@ -12,6 +12,11 @@
 
 #include "so_long.h"
 
+void	ft_openwindow(t_game *game)
+{
+
+}
+
 /**
  * Crear ventana.
  * Crear perímetro.

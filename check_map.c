@@ -106,38 +106,6 @@ void	ft_bordermap(t_game *game)
 }
 
 /**
- * @brief Función que añade todos los elementos necesarios y posibles del mapa.
- */
-void	ft_elementsmap(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = -1;
-	y = -1;
-	while (++x < game->width)
-	{
-		while (++y < game->height)
-		{
-			if (game->gamemap[x][y] == 'P')
-				game->player++;
-			else if (game->gamemap[x][y] == 'E')
-				game->door++;
-			else if (game->gamemap[x][y] == 'C')
-				game->coins++;
-			else if (game->gamemap[x][y] == '1')
-				game->wall++;
-			else if (game->gamemap[x][y] == '0')
-				game->floor++;
-			else
-				ft_error(5);
-		}
-		y = -1;
-	}
-	game->needcoin = game->coins;
-}
-
-/**
  * Hay que:
  * - revisar si el nombre es .ber - x
  * - que pueda abrirlo correctamente con open y tenga permisos para ello. - x
